@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+node_modules/
+.next/
+out/
+.env.local
+pnpm-lock.yaml
+=======
 # Environment variables / secrets
 .env
 .env.*
@@ -42,3 +49,10 @@ Thumbs.db
 *.pfx
 credentials.json
 service-account*.json
+
+USE_MYSQL=true
+DB_HOST=tech0-search-db-class34.mysql.database.azure.com
+DB_USER=admin_class34
+DB_PASSWORD=#IF*#5eT
+DB_NAME=tech0search_nosuke
+>>>>>>> e2d152708aa3b9dbe2f5e99a8fb3cee005b9e5e5
