@@ -37,7 +37,7 @@ export default function SearchPage() {
 
     try {
       const res = await fetch(
-        `${API_URL}/api/search?q=${encodeURIComponent(query)}`
+        `${API_URL}/api/http_app_func?query=${encodeURIComponent(query)}`
       );
 
       if (!res.ok) {
