@@ -1,0 +1,17 @@
+# 仮想環境・キャッシュ
+.venv/
+venv/
+__pycache__/
+.python_packages/
+
+# 秘密情報
+.env
+local.settings.json
+
+# ローカルDB
+*.db
+
+# デプロイ不要なスクリプト
+migrate_db.py
+seed_data.py
+schema.sql
