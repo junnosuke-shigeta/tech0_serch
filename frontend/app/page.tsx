@@ -7,7 +7,7 @@
 // データフロー（仕様設計書 §1.2）:
 //   ユーザー入力
 //   → handleSearch()
-//   → fetch(NEXT_PUBLIC_API_URL/api/search?q=...)
+//   → fetch(NEXT_PUBLIC_API_URL/api/search)
 //   → FastAPI → MySQL
 //   → setResults() → 画面再描画
 // ─────────────────────────────────────────────
@@ -36,9 +36,12 @@ export default function SearchPage() {
     setLastQuery(query);
 
     try {
-      const res = await fetch(
-        `${API_URL}/api/search?q=${encodeURIComponent(query)}`
-      );
+      // ★★★ ここを POST に修正 ★★★
+      const res = await fetch(`${API_URL}/api/search`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }),
+      });
 
       if (!res.ok) {
         const err = await res.json();
@@ -87,7 +90,7 @@ export default function SearchPage() {
           </p>
         )}
 
-        {/* 結果一覧 (FR-002, FR-003) */}
+        {/* 結果一覧 */}
         {results.length > 0 ? (
           <div className="result-list">
             {results.map((r) => (
